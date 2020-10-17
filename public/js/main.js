@@ -1,6 +1,5 @@
 /* eslint-env jquery, browser */
-$(document).ready(() => {
-
-  // Place JavaScript code here...
-
+$(function() {
+  console.log( "ready!" );
+  $(".dropdown-trigger").dropdown();
 });

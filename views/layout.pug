@@ -9,9 +9,11 @@ html
     title #{title} - Hackathon Starter
     link(rel='shortcut icon', href='/favicon.png')
     link(rel='stylesheet', href='/css/main.css')
+    link(rel='stylesheet', href='/css/themes/materialize/materialize.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
     block head
 
-  body
+  body.app-background
     include partials/header
 
     .container
@@ -22,7 +24,7 @@ html
 
     script(src='/js/lib/jquery.min.js')
     script(src='/js/lib/popper.min.js')
-    script(src='/js/lib/bootstrap.min.js')
+    script(src='/js/materialize/bin/materialize.min.js')
     script(src='/js/main.js')
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID
