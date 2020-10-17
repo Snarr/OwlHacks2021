@@ -9,15 +9,12 @@ nav.z-depth-0.white
       else
         li(class=(title === 'Home') ? 'active' : undefined)
           a.nav-text(href='/') Home
-        li(class=(title === 'API Examples') ? 'active' : undefined)
-          a.nav-text(href='/api') API Examples
-        li(class=(title === 'Contact') ? 'active' : undefined)
-          a.nav-text(href='/contact') Contact
-        li(class=(title === 'Status') ? 'active' : undefined)
-          a.nav-text(href='/status') Status
+        li(class=(title === 'Search') ? 'active' : undefined)
+          a.nav-text(href='/search') Search
+        li(class=(title === 'Profile') ? 'active' : undefined)
+          a.nav-text(href='/profile') Profile
         li(class=(title === 'Account Management') ? 'active' : undefined)
-          a.nav-text
-            if user.profile.picture
-              img.circle.valign-wrapper(src=user.profile.picture)
-            else
-              img.circle.valign-wrapper(src=user.gravatar(40))
+          if user.profile.picture
+            img.circle.valign-wrapper(src=user.profile.picture)
+          else
+            img.circle.valign-wrapper(src=user.gravatar(40))
