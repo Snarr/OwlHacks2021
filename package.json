@@ -20,6 +20,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@ladjs/bootstrap-social": "^7.0.2",
+    "@material-ui/core": "^4.11.0",
     "@octokit/rest": "^18.0.6",
     "axios": "^0.20.0",
     "bcrypt": "^5.0.0",
