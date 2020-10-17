@@ -12,9 +12,11 @@ nav.z-depth-0.white
         li(class=(title === 'Search') ? 'active' : undefined)
           a.nav-text(href='/search') Search
         li(class=(title === 'Profile') ? 'active' : undefined)
-          a.nav-text(href='/profile') Profile
+          a.nav-text(href='/account') Profile
         li(class=(title === 'Account Management') ? 'active' : undefined)
           if user.profile.picture
             img.circle.valign-wrapper(src=user.profile.picture)
+            a.nav-img(href='/account' src=user.profile.picture)
           else
             img.circle.valign-wrapper(src=user.gravatar(40))
+            a.nav-img(href='/account' src=user.gravatar(40))
