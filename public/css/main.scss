@@ -1,0 +1,37 @@
+.profile-picture {
+    padding: 9px !important;
+    border-radius: 50% !important;
+    height: fit-content !important;
+}
+
+.rounded-border {
+    font-size: 30px;
+    background: #EAE8EF;
+    border-radius: 50px 50px 50px 50px;
+    padding: 15px 50px;
+}
+
+a.nav-text {
+    color: #000 !important;
+}
+
+.app-background {
+    background-color: #2A3251 !important;
+}
+
+.app-blue-text {
+    color: #2A3251;
+}
+
+.app-nav-buttons {
+    padding: 0 30px !important;
+}
+
+.profile-link {
+    padding: 0px !important;
+    transition: none !important;
+}
+
+.profile-link:hover {
+    background-color: rgba(0, 0, 0, 0.0) !important;
+}
