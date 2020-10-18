@@ -6,6 +6,7 @@ const _ = require('lodash');
 const validator = require('validator');
 const mailChecker = require('mailchecker');
 const User = require('../models/User');
+const WordsList = require('./wordslist.js');
 
 const randomBytesAsync = promisify(crypto.randomBytes);
 
@@ -136,6 +137,9 @@ exports.getChat = (req, res) => {
   res.render('chat', {
     title: "Chat"
   });
+
+exports.postSearch = (req, res, next) => {
+  console.log(req.body.question);
 }
 
 exports.getProfile = (req, res) => {

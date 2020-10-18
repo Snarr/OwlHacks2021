@@ -1,95 +1,78 @@
 extends ../layout
 
 block content
-  .pb-2.mt-2.mb-4.border-bottom
+  .container
     h3.white-text Profile Information
 
-  form(action='/account/settings', method='POST')
-    input(type='hidden', name='_csrf', value=_csrf)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='email') Email
-      .col-md-7
-        input.form-control.white-text(type='email', name='email', id='email', value=user.email, autocomplete='email', required)
-      .offset-sm-3.col-md-7.pl-3
-        if user.emailVerified
-          .text-success.font-italic
-            | Verified
-        else
-            .red-text Unverified: 
-            a(href='/account/verify') Send verification email
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='name') Name
-      .col-md-7
-        input.form-control.white-text(type='text', name='name', id='name', value=user.profile.name, autocomplete='name')
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='skills') Skills
-        input(type='text' name='array[]' value='')
+    form(action='/account/settings', method='POST')
+      input(type='hidden', name='_csrf', value=_csrf)
+      .row
+        label.grey-text(for="email") Email
+          input.white-text(type='email', name='email', id='email', value=user.email, autocomplete='email', required)
+          if user.emailVerified
+              | Verified
+          else
+              .red-text Unverified: 
+              a(href='/account/verify') Send verification email
+      .row
+        label.grey-text(for="name") Name
+          input.white-text(type='text', name='name', id='name', value=user.profile.name, autocomplete='name')
+      .form-group.row
+        label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='skills') Skills
+          input(type='text' name='array[]' value='')
+          br
+          input(type='text' name='array[]' value='')
+          br
+          input(type='text' name='array[]' value='')
+          br
+          input(type='text' name='array[]' value='')
+          br
+          input(type='text' name='array[]' value='')
+      .row
+        label.grey-text(for='location') Location
+          input.white-text(type='text', name='location', id='location', value=user.profile.location, autocomplete)
+      .row
+        label.grey-text(for='website') Website
+          input.white-text(type='text', name='website', id='website', value=user.profile.website, autocomplete='url')
+      .row
+        label.grey-text(for="gravatar") Gravatar
         br
-        input(type='text' name='array[]' value='')
-        br
-        input(type='text' name='array[]' value='')
-        br
-        input(type='text' name='array[]' value='')
-        br
-        input(type='text' name='array[]' value='')
-        
-      script(type='text/javascript').
-              
-
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='location') Location
-      .col-md-7
-        input.form-control.white-text(type='text', name='location', id='location', value=user.profile.location, autocomplete)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='website') Website
-      .col-md-7
-        input.form-control.white-text(type='text', name='website', id='website', value=user.profile.website, autocomplete='url')
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right.white-text Gravatar
-      .col-sm-4
         img(src=user.gravatar(), class='profile', width='100', height='100')
-    .form-group
-      .offset-sm-3.col-md-7.pl-2
-        button.btn.btn.btn-secondary(type='submit')
-          i.fas.fa-pencil-alt.fa-sm
+      .row
+        button.app-btn.btn(type='submit')
+          i
           | Update Profile
 
-  .pb-2.mt-2.mb-4.border-bottom
     h3.white-text Change Password
 
-  form(action='/account/password', method='POST')
-    input(type='hidden', name='_csrf', value=_csrf)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='password') New Password
-      .col-md-7
-        input.form-control(type='password', name='password', id='password', autocomplete='new-password', minlength='8', required)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='confirmPassword') Confirm Password
-      .col-md-7
-        input.form-control(type='password', name='confirmPassword', id='confirmPassword', autocomplete='new-password', minlength='8', required)
-    .form-group
-      .offset-sm-3.col-md-7.pl-2
-        button.btn.btn-primary(type='submit')
-          i.fas.fa-lock.fa-sm
-          | Change Password
+    form(action='/account/password', method='POST')
+      input.white-text(type='hidden', name='_csrf', value=_csrf)
+      .row
+        label(for='password') New Password
+        input.white-text(type='password', name='password', id='password', autocomplete='new-password', minlength='8', required)
+      .row
+        label(for='confirmPassword') Confirm Password
+        input.white-text(type='password', name='confirmPassword', id='confirmPassword', autocomplete='new-password', minlength='8', required)
+      .row
+          button.app-btn.btn(type='submit')
+            i
+            | Change Password
 
-  .pb-2.mt-2.mb-4.border-bottom
     h3.white-text Delete Account
 
-  form.white-text(action='/account/delete', method='POST', onsubmit="return confirm('Are you sure you want to delete your account?');")
-    .form-group
-      p.offset-sm-3.col-md-7.pl-2.white-text You can delete your account, but keep in mind this action is irreversible.
-      input(type='hidden', name='_csrf', value=_csrf)
-      .offset-sm-3.col-md-7.pl-2
-        button.btn.btn-danger(type='submit')
-          i.fas.fa-trash-alt.fa-sm
-          | Delete my account
+    form(action='/account/delete', method='POST', onsubmit="return confirm('Are you sure you want to delete your account?');")
+      .row
+        p.offset-sm-3.col-md-7.pl-2.white-text You can delete your account, but keep in mind this action is irreversible.
+        input(type='hidden', name='_csrf', value=_csrf)
+      .row
+          button.btn-danger.btn(type='submit')
+            i
+            | Delete my account
 
-  .pb-2.mt-2.mb-4.border-bottom
     h3.white-text Linked Accounts
-  .form-group
-    .offset-sm-3.col-md-7.pl-2
+    
+    .row
       if user.google
         p.mb-1.white-text: a.text-danger(href='/account/unlink/google') Unlink your Google account
       else
-        p.mb-1.white-text: a(href='/auth/google') Link your Google account
+        p.mb-1.white-text: a.grey-text(href='/auth/google') Link your Google account
