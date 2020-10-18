@@ -31,8 +31,12 @@ $(function() {
   });
 
   $('#search-form input').keypress(function(e) {
-    if(e.which == 13 && !e.shiftKey) {    {
+    if(e.which == 13 && !e.shiftKey) {    
         $(this).closest("form").submit();
     }
+  });
+ 
+  $('#skill-inputs').on("change", function(){
+    console.log(skills);
   });
 });
