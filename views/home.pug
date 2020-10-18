@@ -8,11 +8,13 @@ block content
       h1.header.center.white-text Tutor.Space
       br
       br
+    #index-banner.section.no-pad-bot
     .container
-      div.row
-        div.col.s3
-        div.col.s3
-          a.white.black-text.z-depth-0.left.rounded-border Teach
-        div.col.s3
-          a.white.black-text.z-depth-0.right.rounded-border Learn
-        div.col.s3
+      br
+      br
+      .row
+        form.col.s12
+          .row
+            .input-field.col.s12
+              textarea#search-bar.materialize-textarea.white-text
+              label.white-text(for='search-bar') What are you looking to learn?
