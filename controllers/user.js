@@ -6,6 +6,7 @@ const _ = require('lodash');
 const validator = require('validator');
 const mailChecker = require('mailchecker');
 const User = require('../models/User');
+const { query } = require('express');
 const WordsList = require('./wordslist.js').arrays;
 
 const randomBytesAsync = promisify(crypto.randomBytes);
@@ -173,8 +174,16 @@ exports.postSearch = (req, res, next) => {
       possibleSubjects.push(key);
     }
   });
-  User.find({ available: true }).sort('rating').then(user => {
-    return res.redirect('https://temple.zoom.us/j/7150603307');
+  User.find({ available: true }).sort('rating').then(query => {
+    query.forEach(user => {
+      possibleSubjects.forEach(subject => {
+        if (user.profile.skills.toLowerCase().includes(subject)) {
+          return res.redirect(`${user.profile.website}`);
+        }
+      });
+    });
+    req.flash('errors', { msg: 'There were no tutors available.' });
+    res.redirect('/search');
   });
 }
 
