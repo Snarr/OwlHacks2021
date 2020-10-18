@@ -150,7 +150,7 @@ exports.postSearch = (req, res, next) => {
       possibleSubjects.push(key);
     }
   });
-  console.log(possibleSubjects);
+  console.log(User.find({ available: true }}));
 }
 
 exports.getProfile = (req, res) => {
