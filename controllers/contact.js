@@ -58,7 +58,7 @@ exports.postContact = async (req, res) => {
     }
 
     let transporter = nodemailer.createTransport({
-      service: 'SendGrid',
+      service: 'Gmail',
       auth: {
         user: process.env.SENDGRID_USER,
         pass: process.env.SENDGRID_PASSWORD
