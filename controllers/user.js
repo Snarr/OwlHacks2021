@@ -137,6 +137,7 @@ exports.getChat = (req, res) => {
   res.render('chat', {
     title: "Chat"
   });
+}
 
 exports.postSearch = (req, res, next) => {
   console.log(req.body.question);
@@ -588,4 +589,4 @@ exports.postForgot = (req, res, next) => {
     .then(sendForgotPasswordEmail)
     .then(() => res.redirect('/forgot'))
     .catch(next);
-};
+}
