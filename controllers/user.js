@@ -121,7 +121,7 @@ exports.postSignup = (req, res, next) => {
  * Profile page.
  */
 exports.getAccount = (req, res) => {
-  res.render('/account', {
+  res.render('account', {
     title: 'Account Management'
   });
 };
@@ -129,6 +129,12 @@ exports.getAccount = (req, res) => {
 exports.getSearch = (req, res) => {
   res.render('search', {
     title: "Search"
+  });
+}
+
+exports.getChat = (req, res) => {
+  res.render('chat', {
+    title: "Chat"
   });
 }
 
