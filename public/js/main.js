@@ -46,5 +46,8 @@ $(function () {
     }
 
     // user.profile.skills = skillsArray;
+    $('#availableForm').on('change', function() {
+      $(this).closest('form').submit();
+  });
   })
 });

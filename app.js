@@ -141,6 +141,8 @@ app.post('/contact', contactController.postContact);
 app.get('/search', userController.getSearch);
 app.post('/search', userController.postSearch);
 app.get('/profile', userController.getProfile);
+app.get('/tutor', userController.getTutor);
+app.post('/available', userController.postAvailability);
 app.get('/account/verify', passportConfig.isAuthenticated, userController.getVerifyEmail);
 app.get('/account/verify/:token', passportConfig.isAuthenticated, userController.getVerifyEmailToken);
 app.get('/account', passportConfig.isAuthenticated, userController.getAccount);

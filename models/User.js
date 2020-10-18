@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
   emailVerified: Boolean,
 
   available: Boolean,
-
+  rating: Number,
   
   google: String,
   github: String,

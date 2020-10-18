@@ -96,7 +96,8 @@ exports.postSignup = (req, res, next) => {
 
   const user = new User({
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    rating: 0.0
   });
 
   User.findOne({ email: req.body.email }, (err, existingUser) => {
@@ -133,6 +134,28 @@ exports.getSearch = (req, res) => {
   });
 }
 
+exports.getTutor = (req, res) => {
+  res.render('tutor', {
+    title: "Tutor"
+  });
+}
+
+exports.postAvailability = (req, res, next) => {
+  User.findById(req.user.id, (err, user) => {
+    if (err) { return next(err); }
+    user.available = (req.body.available == "on") ? true : false;
+    user.save((err) => {
+      if (err) {
+        if (err.code === 11000) {
+        }
+        return next(err);
+      }
+      req.flash('success', { msg: `Availability updated to ${user.available}.` });
+      res.redirect('/tutor');
+    });
+  });
+};
+
 exports.getChat = (req, res) => {
   res.render('chat', {
     title: "Chat"
@@ -150,7 +173,9 @@ exports.postSearch = (req, res, next) => {
       possibleSubjects.push(key);
     }
   });
-  console.log(User.find({ available: true }}));
+  User.find({ available: true }).sort('rating').then(user => {
+    return res.redirect('https://temple.zoom.us/j/7150603307');
+  });
 }
 
 exports.getProfile = (req, res) => {
@@ -182,6 +207,9 @@ exports.postUpdateSettings = (req, res, next) => {
     user.profile.location = req.body.location || '';
     user.profile.website = req.body.website || '';
     user.profile.skills = req.body.skills || '';
+    if (isNaN(user.rating)) {
+      user.rating = 0.0;
+    }
     user.save((err) => {
       if (err) {
         if (err.code === 11000) {
