@@ -81,6 +81,8 @@ exports.getSignup = (req, res) => {
  * POST /signup
  * Create a new local account.
  */
+
+
 exports.postSignup = (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' });
@@ -120,6 +122,13 @@ exports.postSignup = (req, res, next) => {
  * GET /account
  * Profile page.
  */
+exports.getProfile = (req, res) =>{
+
+  res.render('profile', {
+    title: 'User Profile'
+});
+};
+
 exports.getAccount = (req, res) => {
   res.render('account/profile', {
     title: 'Account Management'
@@ -147,6 +156,7 @@ exports.postUpdateProfile = (req, res, next) => {
     user.profile.name = req.body.name || '';
     user.profile.gender = req.body.gender || '';
     user.profile.location = req.body.location || '';
+    user.profile.skills = req.body.skills || '';
     user.profile.website = req.body.website || '';
     user.save((err) => {
       if (err) {
@@ -343,9 +353,9 @@ exports.getVerifyEmail = (req, res, next) => {
     });
     const mailOptions = {
       to: req.user.email,
-      from: 'hackathon@starter.com',
-      subject: 'Please verify your email address on Hackathon Starter',
-      text: `Thank you for registering with hackathon-starter.\n\n
+      from: 'no-reply@tutor.spaces',
+      subject: 'Please verify your email address on Tutor.spaces',
+      text: `Thank you for registering with Tutor.spaces.\n\n
         This verify your email address please click on the following link, or paste this into your browser:\n\n
         http://${req.headers.host}/account/verify/${token}\n\n
         \n\n

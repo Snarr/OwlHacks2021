@@ -1,3 +1,4 @@
+
 const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const mongoose = require('mongoose');
@@ -10,7 +11,6 @@ const userSchema = new mongoose.Schema({
   emailVerificationToken: String,
   emailVerified: Boolean,
 
-  
   google: String,
   github: String,
   tokens: Array,
