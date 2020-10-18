@@ -126,6 +126,12 @@ exports.getAccount = (req, res) => {
   });
 };
 
+exports.getSearch = (req, res) => {
+  res.render('search', {
+    title: "Search"
+  });
+}
+
 /**
  * POST /account/profile
  * Update profile information.
