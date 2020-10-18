@@ -2,12 +2,10 @@ extends layout
 
 block content
   #index-banner.section.no-pad-bot
-    .container
+    #search-container.container
       br
       br
       .row
-        form.col.s12
-          .row
-            .input-field.col.s12
-              textarea#search-bar.materialize-textarea.white-text
-              label.white-text(for='search-bar') What are your fears?
+        form.col.s12(action='/search', method='POST', id="search-form")
+          input(type='hidden', name='_csrf', value=_csrf)
+          input#question.validate.white-text(type="text", name="question", placeholder="What do you need help with?")

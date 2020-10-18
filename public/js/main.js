@@ -27,4 +27,10 @@ $(function() {
       minLength: 1
     }
   });
+
+  $('#search-form input').keypress(function(e) {
+    if(e.which == 13 && !e.shiftKey) {    {
+        $(this).closest("form").submit();
+    }
+  });
 });
