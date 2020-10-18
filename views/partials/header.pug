@@ -4,9 +4,9 @@ div.navbar-fixed
       ul#nav-mobile.right.hide-on-med-and-down
         if !user
           li.nav-item(class=(title === 'Login') ? 'active' : undefined)
-            a.nav-link(href='/login') Login
+            a.nav-text(href='/login') Login
           li.nav-item(class=(title === 'Create Account') ? 'active' : undefined)
-            a.nav-link(href='/signup') Create Account
+            a.nav-text(href='/signup') Create Account
         else
           li(class=(title === 'Home') ? 'active' : undefined)
             a.nav-text(href='/') Home
