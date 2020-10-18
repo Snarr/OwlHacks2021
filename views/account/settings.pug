@@ -21,14 +21,20 @@ block content
       label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='name') Name
       .col-md-7
         input.form-control.white-text(type='text', name='name', id='name', value=user.profile.name, autocomplete='name')
-
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='skills') Skills
-      
-    .chips
-    script.
-      const tags = document.querySelectorAll('.chips')
-      M.Chips.init(tags,{})
+        input(type='text' name='array[]' value='')
+        br
+        input(type='text' name='array[]' value='')
+        br
+        input(type='text' name='array[]' value='')
+        br
+        input(type='text' name='array[]' value='')
+        br
+        input(type='text' name='array[]' value='')
+        
+      script(type='text/javascript').
+              
 
     .form-group.row
       label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='location') Location
