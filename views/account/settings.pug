@@ -19,15 +19,11 @@ block content
           input.white-text(type='text', name='name', id='name', value=user.profile.name, autocomplete='name')
       .row
         label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='skills') Skills
-          input(type='text' name='array[]' value='')
+          input.skill-input.white-text(type='text' name='skills' value=user.profile.skills)
           br
-          input(type='text' name='array[]' value='')
-          br
-          input(type='text' name='array[]' value='')
-          br
-          input(type='text' name='array[]' value='')
-          br
-          input(type='text' name='array[]' value='')
+        
+
+
       .row
         label.grey-text(for='location') Location
           input.white-text(type='text', name='location', id='location', value=user.profile.location, autocomplete)
