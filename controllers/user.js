@@ -6,7 +6,7 @@ const _ = require('lodash');
 const validator = require('validator');
 const mailChecker = require('mailchecker');
 const User = require('../models/User');
-const WordsList = require('./wordslist.js');
+const WordsList = require('./wordslist.js').arrays;
 
 const randomBytesAsync = promisify(crypto.randomBytes);
 
@@ -140,7 +140,17 @@ exports.getChat = (req, res) => {
 }
 
 exports.postSearch = (req, res, next) => {
-  console.log(req.body.question);
+  let questionArray = req.body.question.trim().replace('!', '').replace(".", '').replace(`'`, '').split(' ');
+  // let countData = {}
+  let lastCount = 0;
+  let possibleSubjects = [];
+  Object.keys(WordsList).forEach(key => {
+    let newCount = questionArray.filter(value => WordsList[key].includes(value)).length
+    if (newCount >= lastCount && newCount != 0) {
+      possibleSubjects.push(key);
+    }
+  });
+  console.log(possibleSubjects);
 }
 
 exports.getProfile = (req, res) => {
