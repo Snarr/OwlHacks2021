@@ -35,3 +35,16 @@ a.nav-text {
 .profile-link:hover {
     background-color: rgba(0, 0, 0, 0.0) !important;
 }
+
+#search-bar:focus {
+    border-bottom: 1px solid #ffffff !important;
+    box-shadow: 0 1px 0 0 #ffffff !important;
+}
+
+.app-btn {
+    color: #000000 !important;
+}
+
+.btn-danger {
+    color: red !important;
+}
