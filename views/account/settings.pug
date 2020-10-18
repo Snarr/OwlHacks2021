@@ -9,11 +9,6 @@ block content
       .row
         label.grey-text(for="email") Email
           input.white-text(type='email', name='email', id='email', value=user.email, autocomplete='email', required)
-          if user.emailVerified
-              | Verified
-          else
-              .red-text Unverified: 
-              a(href='/account/verify') Send verification email
       .row
         label.grey-text(for="name") Name
           input.white-text(type='text', name='name', id='name', value=user.profile.name, autocomplete='name')
