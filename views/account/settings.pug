@@ -19,15 +19,8 @@ block content
           input.white-text(type='text', name='name', id='name', value=user.profile.name, autocomplete='name')
       .row
         label.col-md-3.col-form-label.font-weight-bold.text-right.white-text(for='skills') Skills
-          input#skill-input(type='text' name='skills[]' value='')
+          input.skill-input.white-text(type='text' name='skills' value=user.profile.skills)
           br
-          input#skill-input(type='text' name='skills[]' value='')
-          br
-          input#skill-input(type='text' name='skills[]' value='')
-          br
-          input#skill-input(type='text' name='skills[]' value='')
-          br
-          input#skill-input(type='text' name='skills[]' value='')
         
 
 

@@ -1,7 +1,7 @@
 /* eslint-env jquery, browser */
-$(function() {
-  
-  console.log( "ready!" );
+$(function () {
+
+  console.log("ready!");
   $(".dropdown-trigger").dropdown();
 
   $('.chips').chips();
@@ -30,13 +30,21 @@ $(function() {
     }
   });
 
-  $('#search-form input').keypress(function(e) {
-    if(e.which == 13 && !e.shiftKey) {    
-        $(this).closest("form").submit();
+  $('#search-form input').keypress(function (e) {
+    if (e.which == 13 && !e.shiftKey) {
+      $(this).closest("form").submit();
     }
   });
- 
-  $('#skill-inputs').on("change", function(){
-    console.log(skills);
-  });
+
+  $('.skill-input').on('change', () => {
+    var input = document.getElementsByName('skills[]');
+    let skillsArray = []
+
+    for (var i = 0; i < input.length; i++) {
+      var a = input[i];
+      skillsArray.push(a.value);
+    }
+
+    // user.profile.skills = skillsArray;
+  })
 });
