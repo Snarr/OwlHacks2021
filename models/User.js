@@ -10,6 +10,8 @@ const userSchema = new mongoose.Schema({
   emailVerificationToken: String,
   emailVerified: Boolean,
 
+  available: Boolean,
+  rating: Number,
   
   google: String,
   github: String,

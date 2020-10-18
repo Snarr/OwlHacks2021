@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  #index-banner.section.no-pad-bot
+    #search-container.container
+      br
+      br
+      .row
+        form.col.s12(action='/available', method='POST', id="search-form")
+          input(type='hidden', name='_csrf', value=_csrf)
+          .row
+            .switch
+                label
+                    | False
+                    input#availableForm(type='checkbox' name="available")
+                    span.lever
+                    |       True
+          .row
+            button.app-btn.btn(type='submit') Submit
