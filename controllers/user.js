@@ -121,7 +121,7 @@ exports.postSignup = (req, res, next) => {
  * Profile page.
  */
 exports.getAccount = (req, res) => {
-  res.render('account/profile', {
+  res.render('account/settings', {
     title: 'Account Management'
   });
 };
@@ -132,11 +132,17 @@ exports.getSearch = (req, res) => {
   });
 }
 
+exports.getProfile = (req, res) => {
+  res.render('profile', {
+    title: "Profile"
+  });
+}
+
 /**
- * POST /account/profile
+ * POST /account/settings
  * Update profile information.
  */
-exports.postUpdateProfile = (req, res, next) => {
+exports.postUpdateSettings = (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' });
 
