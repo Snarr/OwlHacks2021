@@ -1,7 +1,9 @@
 /* eslint-env jquery, browser */
 $(function() {
+  
   console.log( "ready!" );
   $(".dropdown-trigger").dropdown();
+
   $('.chips').chips();
   $('.chips-initial').chips({
     data: [{

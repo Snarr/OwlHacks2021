@@ -148,6 +148,7 @@ app.post('/account/settings', passportConfig.isAuthenticated, userController.pos
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
+app.get('/chat', userController.getChat);
 
 /**
  * API examples routes.

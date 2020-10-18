@@ -12,8 +12,12 @@ div.navbar-fixed
             a.nav-text(href='/') Home
           li(class=(title === 'Search') ? 'active' : undefined)
             a.nav-text(href='/search') Search
+          li(class=(title === 'Logoff') ? 'active' : undefined)
+            a.nav-text(href='/logout') Log Out  
+          li(class=(title === 'Chat') ? 'active' : undefined)
+            a.nav-text(href='/chat') Chat
           li
-            a.profile-link(href='/account')
+            a.profile-link(href='/profile')
               if user.profile.picture
                 img.profile-picture(src=user.profile.picture)
               else

@@ -133,6 +133,11 @@ exports.getSearch = (req, res) => {
   });
 }
 
+exports.getChat = (req, res) => {
+  res.render('chat', {
+    title: "Chat"
+  });
+
 exports.postSearch = (req, res, next) => {
   console.log(req.body.question);
 }
